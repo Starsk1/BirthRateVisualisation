@@ -6,6 +6,7 @@ install.packages('here')
 library(tidyverse)
 library(here)
 library(readr)
+library(ggplot2)
 
 
 ##load data
@@ -25,10 +26,20 @@ global_data <- raw_data %>%
   filter(location_name=="Global") %>% 
   select(location_name, year_id, val)
 
+#rename variables for clarity
+#val rename to mean birth rate, year_id rename to year
+
 
 
 ##----------------------------------------------------------PLOTS------------------------------------------------------------------------------
 
+#plotting mean birth rate against year in order to see the trend from 1950 to 2019
 
+p <- ggplot(data=global_data,
+       mapping=aes(x=year_id, y=val))
 
+p+geom_point()
 
+#this is a working plot but looks a bit crap, needs axis and chart titles. want straight line and dots, every 10 years to be labeled on the x axis 
+
+#also going to need to find how to save plots to plot folder 
