@@ -18,13 +18,17 @@ head(raw_data)
 
 #I only want to analyse global birth rate so my next steps are to filter out unnecessary columns and locations that are not global 
 
-#first step, have only rows with global birth rate 
+#first step, have only rows with global birth rate
+#next step remove irrelevent columns, keeping location_name, year_id, and val
 
 global_data <- raw_data %>% 
-  filter(location_name=="Global")+
-  select(location_name, year_id,)
-
-global_data %>% 
+  filter(location_name=="Global") %>% 
   select(location_name, year_id, val)
 
-#next step remove irrelevent columns, keeping location_name, year_id, and val
+
+
+##----------------------------------------------------------PLOTS------------------------------------------------------------------------------
+
+
+
+
